@@ -2,13 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\DiskonModel;
+
 class Home extends BaseController
 {
     public function index()
     {
-        return view('home');
+        $diskon = new DiskonModel();
+        return view('home', [
+            'diskon' => $diskon->findAll()
+        ]);
     }
-    
+
     public function contact()
     {
         return view('contact');
