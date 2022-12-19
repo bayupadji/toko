@@ -113,6 +113,7 @@ class Shop extends BaseController
                     $data = [];
                 } else {
                     $data = $this->diskon->where('kode_voucher', $kode)->where('aktif', 1)->findAll();
+                    // dd($data);
                 }
             }
 

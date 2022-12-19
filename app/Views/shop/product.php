@@ -441,7 +441,10 @@ $submit = [
                 if (data[0] == null) {
                     $("#voucher").removeClass('is-valid');
                     $("#voucher").addClass('is-invalid');
-                    var total_harga = (jumlah_pembelian * harga) + ongkir;
+                    var jumlah = $('#jumlah').val()
+                    var harga = <?= $barang->harga ?>;
+                    var ongkir = 0;
+                    var total_harga = (jumlah * harga) + ongkir;
                     $("#total_harga").val(total_harga);
                 } else {
                     $("#voucher").removeClass('is-invalid');
@@ -451,6 +454,7 @@ $submit = [
                     let dis = 100 - data[0]['besar_diskon'];
                     let desimal = dis / 100;
                     $("#total_harga").val(tot * desimal);
+                    console.log(data[0])
                 }
                 // console.log(data[0]['besar_diskon']);
             },
