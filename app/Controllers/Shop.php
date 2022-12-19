@@ -109,7 +109,7 @@ class Shop extends BaseController
                     $awal = $s->tanggal_mulai_berlaku;
                     $akhir = $s->tanggal_akhir_berlaku;
                 }
-                if ($tgl >= $akhir || $tgl <= $awal) {
+                if ($tgl > $akhir || $tgl < $awal) {
                     $data = [];
                 } else {
                     $data = $this->diskon->where('kode_voucher', $kode)->where('aktif', 1)->findAll();
