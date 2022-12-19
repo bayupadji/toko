@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\BarangModel;
 use App\Models\KategoriModel;
 use App\Models\KomentarModel;
+use App\Models\DiskonModel;
 use App\Libraries\Bantuan;
 
 class Shop extends BaseController
@@ -17,6 +18,7 @@ class Shop extends BaseController
         helper('form');
         $this->kategori = new KategoriModel();
         $this->barang = new BarangModel();
+        $this->diskon = new DiskonModel();
         $this->komentar = new KomentarModel();
         $this->bantuan = new Bantuan();
     }

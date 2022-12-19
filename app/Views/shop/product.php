@@ -424,9 +424,7 @@ $submit = [
 
     $("#voucher").on("change", function() {
         let kode = $("#voucher").val();
-
         // console.log(kode);
-
         $.ajax({
             url: "<?= site_url('shop/getvoucher') ?>",
             type: 'GET',
@@ -435,9 +433,10 @@ $submit = [
             },
 
             dataType: 'json',
-            error: function(req, err) {
-                console.log('Error data tidak berhasil terpanggil', err);
-            },
+            // error: function(req, err, data) {
+            //     // console.log('Error data tidak berhasil terpanggil', err);
+            //     console.log(data);
+            // },
             success: function(data) {
                 if (data[0] == null) {
                     $("#voucher").removeClass('is-valid');
@@ -452,15 +451,10 @@ $submit = [
                     let dis = 100 - data[0]['besar_diskon'];
                     let desimal = dis / 100;
                     $("#total_harga").val(tot * desimal);
-
                 }
                 // console.log(data[0]['besar_diskon']);
-
             },
-
-
         });
-
     });
 </script>
 <?= $this->endSection() ?>
